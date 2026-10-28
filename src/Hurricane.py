@@ -9,8 +9,9 @@ import arcpy
 from pathlib import Path
 
 #Set paths
-raw_folder_path = Path.cwd().parent / 'data' / 'raw'
-processed_folder_path = Path.cwd().parent / 'data' / 'processed'
+project_folder = Path(__file__).parent
+raw_folder_path = project_folder.parent / 'data' / 'raw'
+processed_folder_path = project_folder.parent / 'data' / 'processed'
 
 #Arcpy environment settings
 arcpy.env.workspace = str(raw_folder_path)
@@ -50,7 +51,7 @@ for storm_season in range(2000,2004):
 
     storm_dict[storm_season] = storm_names
 
-#%%
+
 # #### Select point features corresponding to a specific storm (season & name)
 # Iterate and tally storm county counts
 
